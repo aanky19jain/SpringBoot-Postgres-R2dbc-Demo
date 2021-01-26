@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.3.0.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-	id 'java'
+  id 'org.springframework.boot' version '2.3.8.RELEASE'
+  id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+  id 'java'
 }
 
 group = 'com.r2dbc.postgresql'
@@ -21,16 +21,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'io.r2dbc:r2dbc-postgresql'
 	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
-	testImplementation 'io.projectreactor:reactor-test'
-}
-
-test {
-	useJUnitPlatform()
+	compileOnly 'org.projectlombok:lombok'
+  	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  	testImplementation 'io.projectreactor:reactor-test'
 }
